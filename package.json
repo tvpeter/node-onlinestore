@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=app nodemon app.js",
+    "lint": "eslint app.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,25 @@
   "dependencies": {
     "chalk": "2.4.1",
     "debug": "4.1.1",
+    "ejs": "2.6.1",
     "express": "4.16.4",
-    "morgan": "1.9.1"
+    "morgan": "1.9.1",
+    "nodemon": "1.18.9"
+  },
+  "devDependencies": {
+    "eslint": "5.11.1",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "DEVELOPMENT",
+      "PORT": 4000
+    }
   }
 }
